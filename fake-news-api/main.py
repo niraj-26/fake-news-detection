@@ -19,12 +19,13 @@ app = FastAPI(
 # ==============================
 # Load Saved Model & Tokenizer
 # ==============================
-MODEL_PATH = "distilbert_model"
+MODEL_NAME = "distilbert-base-uncased"
 
-tokenizer = DistilBertTokenizerFast.from_pretrained(MODEL_PATH)
+tokenizer = DistilBertTokenizerFast.from_pretrained(MODEL_NAME)
 
 model = TFDistilBertForSequenceClassification.from_pretrained(
-    MODEL_PATH
+    MODEL_NAME,
+    num_labels=2
 )
 
 # ==============================
